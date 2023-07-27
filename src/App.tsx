@@ -1,24 +1,14 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import { PATH_PARAM_USER_ID } from './utils/Constants';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1 className='text-center'>Vite + React</h1>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const App: React.FC = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<h1>Login</h1>} />
+            <Route path={`/:${PATH_PARAM_USER_ID}`} element={<h1>User</h1>} />
+            <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+    )
 }
 
 export default App
