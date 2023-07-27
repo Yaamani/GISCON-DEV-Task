@@ -1,0 +1,23 @@
+{
+    "users": [
+        { "id": 1, "name": "Shikabala", "role": "admin" },
+        {
+            "id": 2,
+            "name": "Zizo",
+            "role": "member",
+            "permissions": {
+                "page1": { "block1": true, "block3": true },
+                "page2": { "block5": true }
+            }
+        },
+        {
+            "id": 3,
+            "name": "Ahmad Fatouh",
+            "role": "member",
+            "permissions": {
+                "page1": { "block2": true },
+                "page2": { "block4": true }
+            }
+        }
+    ]
+}
