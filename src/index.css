@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #root { */
-/*   width: 100vw; */
-/*   height: 100vh; */
-/* } */
+#root {
+    width: 100vw;
+    height: 100vh;
+}
 
+@layer base {
+    * {
+        @apply rounded-lg;
+    }
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    button {
+        @apply text-slate-50;
+        @apply p-2;
+        @apply w-fit;
+    }
+}
