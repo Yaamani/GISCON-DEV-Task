@@ -1,18 +1,14 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { IUser } from "../utils/Types";
 import { useNavigate } from "react-router-dom";
+import useFetch from '../hooks/useFetch';
 
 const Login: FC = () => {
     const navigate = useNavigate();
 
     const [allUsers, setAllUsers] = useState<IUser[]>([]);
 
-    useEffect(() => {
-        fetch("http://localhost:3000/users")
-            .then((res) => res.json())
-            .then((data) => setAllUsers(data))
-            .catch((err) => alert(err));
-    }, []);
+    useFetch("http://localhost:3000/users", (data) => setAllUsers(data), []);
 
     const handleUserClick = (user: IUser) => navigate(`/${user.id}`);
 
