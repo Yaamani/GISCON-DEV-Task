@@ -23,9 +23,9 @@ const User: FC = () => {
     return (
         <div className="p-2">
             <div className="grid grid-cols-3">
-                <h2 className="text-slate-800 col-span-2">Welcome back, {user?.name}!</h2>
+                <h2 className="text-slate-800 col-span-2 mb-4">Welcome back, {user?.name}!</h2>
                 <button
-                    className="ml-auto"
+                    className="ml-auto h-fit"
                     onClick={() => navigate("/")}
                 >
                     logout

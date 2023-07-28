@@ -1,3 +1,5 @@
+export type AllKeys<T> = T extends any ? keyof T : never;
+
 export type IUserAdminRole = {
     role: "admin";
 };
@@ -15,4 +17,6 @@ export type IUser<Role extends IUserAdminRole | IUserMemberRole = IUserAdminRole
     name: string;
 } & Role;
 
+// export type UserRole = IUserAdminRole["role"] | IUserMemberRole["role"];
 export type PageId = keyof IUserMemberRole["permissions"];
+export type BlockId = AllKeys<IUserMemberRole["permissions"][PageId]>;
