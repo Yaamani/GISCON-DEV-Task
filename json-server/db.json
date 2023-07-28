@@ -15,8 +15,7 @@
             "name": "Ahmad Fatouh",
             "role": "member",
             "permissions": {
-                "page1": { "block2": true },
-                "page2": { "block4": true }
+                "page1": { "block2": true }
             }
         }
     ]

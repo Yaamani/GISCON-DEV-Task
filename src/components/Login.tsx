@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { IUser } from "../utils/Types";
 import { useNavigate } from "react-router-dom";
-import useFetch from '../hooks/useFetch';
+import useFetch from "../hooks/useFetch";
 
 const Login: FC = () => {
     const navigate = useNavigate();
@@ -21,11 +21,7 @@ const Login: FC = () => {
                     {allUsers
                         .filter((user) => user.role === "admin")
                         .map((user, index) => (
-                            <button
-                                key={index}
-                                className="bg-slate-600"
-                                onClick={() => handleUserClick(user)}
-                            >
+                            <button key={index} onClick={() => handleUserClick(user)}>
                                 {user.name}
                             </button>
                         ))}
@@ -35,16 +31,13 @@ const Login: FC = () => {
                     {allUsers
                         .filter((user) => user.role === "member")
                         .map((user, index) => (
-                            <button
-                                key={index}
-                                className="bg-slate-600"
-                                onClick={() => handleUserClick(user)}
-                            >
+                            <button key={index} onClick={() => handleUserClick(user)}>
                                 {user.name}
                             </button>
                         ))}
                 </div>
             </div>
+            {allUsers === undefined || allUsers.length === 0 && <h1>Loading...</h1>}
         </div>
     );
 };

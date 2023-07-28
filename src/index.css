@@ -25,6 +25,7 @@
     }
 
     button {
+        @apply bg-slate-600;
         @apply text-slate-50;
         @apply p-2;
         @apply w-fit;

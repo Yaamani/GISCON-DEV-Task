@@ -14,3 +14,5 @@ export type IUser<Role extends IUserAdminRole | IUserMemberRole = IUserAdminRole
     id: number;
     name: string;
 } & Role;
+
+export type PageId = keyof IUserMemberRole["permissions"];

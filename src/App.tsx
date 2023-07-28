@@ -7,7 +7,7 @@ const App: React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<Login/>} />
-            <Route path={`/:${PATH_PARAM_USER_ID}`} element={<User/>} />
+            <Route path={`/:${PATH_PARAM_USER_ID}/*`} element={<User/>} />
             <Route path="*" element={<h1>404</h1>} />
         </Routes>
     )
