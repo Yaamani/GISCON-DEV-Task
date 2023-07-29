@@ -34,7 +34,7 @@ const MemberPage: FC<MemberPageProps> = ({ user }) => {
             <h3 className="my-4">{title}</h3>
             <div className="flex gap-4 flex-col sm:flex-row">
                 {pagePermissions &&
-                    Object.keys(pagePermissions).map((blockId, index) => (
+                    Object.keys(pagePermissions).sort((a, b) => a.localeCompare(b)).map((blockId, index) => (
                         <div
                             key={index}
                             className="bg-slate-800 text-slate-50 w-full h-72 sm:w-72 text-center"
