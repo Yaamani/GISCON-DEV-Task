@@ -12,10 +12,10 @@
       "permissions": {
         "page1": {
           "block1": true,
-          "block3": true
+          "block2": true
         },
         "page2": {
-          "block4": true
+          "block5": true
         }
       }
     },

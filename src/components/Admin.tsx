@@ -29,6 +29,8 @@ const Admin: FC<AdminPageProps> = () => {
         !reftech
     );
 
+    const [isSaving, setIsSaving] = useState(false);
+
     const checkedPage = useCallback(
         (pageId: PageId) => pageId in (selectedMember?.permissions ?? {}),
         [allMembersMap, selectedMember]
@@ -79,6 +81,22 @@ const Admin: FC<AdminPageProps> = () => {
         },
         [selectedMember]
     );
+
+    const handleSave = () => {
+        setIsSaving(true);
+
+        fetch(`http://localhost:3000/users/${selectedMember?.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(selectedMember),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+            .then((data) => data.json())
+            .then(() => setRefetch(true))
+            .catch((error) => alert(error))
+            .finally(() => setIsSaving(false));
+    };
 
     return (
         <div className="flex gap-5 flex-col">
@@ -172,21 +190,8 @@ const Admin: FC<AdminPageProps> = () => {
                     </div>
                 </div>
             </div>
-            <button
-                onClick={() => {
-                    fetch(`http://localhost:3000/users/${selectedMember?.id}`, {
-                        method: "PATCH",
-                        body: JSON.stringify(selectedMember),
-                        headers: {
-                            "Content-type": "application/json; charset=UTF-8",
-                        },
-                    })
-                        .then((data) => data.json())
-                        .then(() => setRefetch(true))
-                        .catch((error) => alert(error));
-                }}
-            >
-                Save
+            <button className="disabled:bg-slate-400" disabled={isSaving} onClick={handleSave}>
+                {isSaving ? "Saving..." : "Save"}
             </button>
         </div>
     );
