@@ -17,9 +17,9 @@ yarn install
 ```
 Then, you need 2 terminal windows.
 
-One of them is for the mock json server. Note: you can add a delay, for example ```yarn mock -d 500``` adds a 500 ms delay.
+One of them is for the mock json server. Note: the following command adds a 500 ms delay to each request, if you don't want any delay, simply run ```yarn mock```.
 ```
-yarn mock
+yarn mock -d 500
 ```
 The other is for running the app.
 ```
